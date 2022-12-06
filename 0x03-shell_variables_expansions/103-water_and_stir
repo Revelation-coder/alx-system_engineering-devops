@@ -1,2 +1,2 @@
 #!/bin/bash
-echo echo $(($STIR+$WATER))
+num1=$(echo "WATER" | tr water bestchol) num2=$(echo "STIR" | tr stir bestchol)   echo  " num1+num2"
