@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script creates a PID file and displays a message indefinitely
+# It also displays msg when receiving a SIGTERM or SIGINT signal, and deletes the PID file and terminates itself when receiving a SIGQUIT or SIGTERM 
+
+# Create PID file
+echo $$ > /var/run/myscript.pid
+
+# Signal handlers
+trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm /var/run/myscript.pid; exit" SIGQUIT SIGTERM
+
+# Display message indefinitely
+while true
+do
+    echo "To infinity and beyond"
+    sleep 1
+done
+i
