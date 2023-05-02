@@ -7,8 +7,8 @@ end
 
 string = ARGV[0]
 
-if string.match(/School/)
-  puts string1.chomp
-else
-  exit 1
+matches = string.scan(/hb(t{1,5})n/)
+matches.each do |match|
+  puts match[0]
 end
+

@@ -7,8 +7,6 @@ end
 
 string = ARGV[0]
 
-if string.match(/School/)
-  puts string1.chomp
-else
-  exit 1
-end
+matches = string.scan(/\bhbt{2,4}n\b|\bhbn\b|\bhbt*n\b/)
+puts matches.join(' ')
+

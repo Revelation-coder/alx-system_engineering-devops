@@ -7,8 +7,9 @@ end
 
 string = ARGV[0]
 
-if string.match(/School/)
-  puts string1.chomp
+if string.match(/hb*t*n/)
+  puts string.chomp
 else
   exit 1
 end
+
