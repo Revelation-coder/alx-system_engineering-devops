@@ -7,6 +7,6 @@ end
 
 string = ARGV[0]
 
-matches = string.scan(/\bhbt{2,4}n\b|\bhbn\b|\bhbt*n\b/)
+matches = string.scan(/^h.n$/)
 puts matches.join(' ')
 
