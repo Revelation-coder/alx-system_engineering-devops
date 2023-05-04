@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 # regex built for Oniguruma library
 
 # pattern to extract sender, receiver, and flags
