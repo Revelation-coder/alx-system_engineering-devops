@@ -7,6 +7,6 @@ end
 
 string = ARGV[0]
 
-puts string.scan.(/hbt+n/).join
+puts string.scan.(/hbt*n/).join
 end
 
