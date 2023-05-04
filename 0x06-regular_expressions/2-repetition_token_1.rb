@@ -8,7 +8,7 @@ end
 string = ARGV[0]
 
 if string.match(/hb*t*n/)
-  puts string.scan(/h{1}tn{1}/).join
+  puts string.join
 else
   exit 1
 end
