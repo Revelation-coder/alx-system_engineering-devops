@@ -7,8 +7,6 @@ end
 
 string = ARGV[0]
 
-matches = string.scan(/h{1}b{1}(t{1,})n/)
-matches.each do |match|
-  puts match[0]
+puts string.scan.(/hbn+n/).join
 end
 
