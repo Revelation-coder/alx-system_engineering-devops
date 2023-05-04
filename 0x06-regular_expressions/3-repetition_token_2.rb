@@ -1,12 +1,5 @@
 #!/usr/bin/env ruby
 
-if ARGV.length != 1
-  puts "Usage: #{$0} <string>"
-  exit 1
-end
-
 string = ARGV[0]
-
-puts string.scan.(/hbt*n/).join
-end
+puts string.scan.(/hb{1}t*n{1}/).join
 
