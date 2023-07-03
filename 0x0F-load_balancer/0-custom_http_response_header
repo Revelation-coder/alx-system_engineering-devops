@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-#to configure a new server
+# This script configures Nginx with a custom HTTP response header
 
+# Install Nginx
 sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
-sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+sudo apt-get install -y nginx
+
+# Configure Nginx custom header
+sudo sed -i '/server_name _;/a \\n\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+# Restart Nginx service
 sudo service nginx restart
