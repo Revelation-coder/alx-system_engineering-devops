@@ -1,19 +1,19 @@
-# This Puppet manifest configures Nginx with a custom HTTP response header
-
-# Install Nginx
-package { 'nginx':
-  ensure => 'installed',
+#puppet advance
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell,
 }
-
-# Configure Nginx custom header
-file { '/etc/nginx/sites-available/default':
-  ensure => 'file',
-  content => "# Managed by Puppet\nserver {\n\tlisten 80 default_server;\n\tlisten [::]:80 default_server;\n\n\tadd_header X-Served-By $hostname;\n\n\tlocation / {\n\t\troot /var/www/html;\n\t\tindex index.html index.htm;\n\t}\n}\n",
-  notify => Service['nginx'],
+-> package {'nginx':
+  ensure => present,
 }
-
-# Enable and start Nginx service
-service { 'nginx':
-  ensure => 'running',
-  enable => true,
+-> file_line { 'header line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "	location / {
+  add_header X-Served-By ${hostname};",
+  match  => '^\tlocation / {',
+}
+-> exec { 'restart service':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
