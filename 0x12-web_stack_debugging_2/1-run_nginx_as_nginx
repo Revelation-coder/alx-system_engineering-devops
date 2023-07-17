@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script configures the container to run Nginx as the nginx user.
+
+# Update Nginx configuration
+sed -i 's/user\s*nginx;/user nginx nginx;/' /etc/nginx/nginx.conf
+
+# Modify the default Nginx site configuration
+sed -i 's/listen\s*80;/listen 8080;/' /etc/nginx/sites-available/default
+
+# Restart Nginx service
+service nginx restart
