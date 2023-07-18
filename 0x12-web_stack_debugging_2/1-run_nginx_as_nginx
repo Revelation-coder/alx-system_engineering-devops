@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-# This script configures the container to run Nginx as the nginx user.
-
-# Update Nginx configuration
-sed -i 's/user\s*nginx;/user nginx nginx;/' /etc/nginx/nginx.conf
-
-# Modify the default Nginx site configuration
-sed -i 's/listen\s*80;/listen 8080;/' /etc/nginx/sites-available/default
-
-# Restart Nginx service
+# Run Nginx as Nginx
+pkill apache2
+sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
+service nginx reload
 service nginx restart
