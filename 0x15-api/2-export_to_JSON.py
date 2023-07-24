@@ -3,9 +3,9 @@
 This Python script extends the previous task to export the employee's TODO
 list progress and completed tasks to a JSON file named after the employee's ID.
 """
+import json
 import requests
 import sys
-import json
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

@@ -1,13 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 """
 This Python script extends the previous task to export the employee's TODO list
 progress and completed tasks to a CSV file named after the employee's ID.
 The script takes the employee ID as a command-line argument and
 generates a CSV file with the required information.
 """
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":
