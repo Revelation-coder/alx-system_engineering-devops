@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 """
 This Python script extends the previous task to export the employee's TODO list
 progress and completed tasks to a CSV file named after the employee's ID.
