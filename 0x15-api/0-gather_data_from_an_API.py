@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+This Python script retrieves information about a given employee's TODO list
+progress and their completed tasks from a given API endpoint. It takes an
+employee ID as a command-line argument and
+outputs the information in the specified format.
+"""
 import requests
 import sys
 
@@ -24,7 +30,8 @@ if __name__ == "__main__":
         total_tasks = len(todo_data)
         done_tasks = sum(1 for task in todo_data if task.get("completed"))
 
-        print("Employee {} is done with tasks({}/{}):".format(employee_name, done_tasks, total_tasks))
+        print("Employee {} is done with tasks({}/{}):".format
+              (employee_name, done_tasks, total_tasks))
         for task in todo_data:
             if task.get("completed"):
                 print("\t{}".format(task.get("title")))

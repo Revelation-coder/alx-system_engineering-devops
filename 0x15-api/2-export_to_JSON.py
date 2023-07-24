@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This Python script extends the previous task to export the employee's TODO
+list progress and completed tasks to a JSON file named after the employee's ID.
+"""
 import requests
 import sys
 import json
@@ -27,7 +31,9 @@ if __name__ == "__main__":
         for task in todo_data:
             task_title = task.get("title")
             task_status = task.get("completed")
-            json_data[employee_id].append({"task": task_title, "completed": task_status, "username": employee_name})
+            json_data[employee_id].append({"task": task_title,
+                                           "completed": task_status,
+                                           "username": employee_name})
 
         json_file = "{}.json".format(employee_id)
         with open(json_file, mode='w') as file:

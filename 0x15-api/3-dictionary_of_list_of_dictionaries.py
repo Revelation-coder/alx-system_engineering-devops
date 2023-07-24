@@ -4,7 +4,6 @@ Export data in the JSON format.
 
 Requirements:
 - Records all tasks from all employees.
-- Format must be: { "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ], "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ]}
 - File name must be: todo_all_employees.json
 """
 import json
@@ -26,7 +25,8 @@ if __name__ == "__main__":
         username = user["username"]
         tasks_response = requests.get(f"{url}/todos?userId={user_id}")
         tasks = tasks_response.json()
-        user_tasks = [{"username": username, "task": task["title"], "completed": task["completed"]} for task in tasks]
+        user_tasks = [{"username": username, "task": task["title"],
+                      "completed": task["completed"]} for task in tasks]
         all_tasks[user_id] = user_tasks
 
     # Write the data to the JSON file

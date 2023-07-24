@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+"""
+This Python script extends the previous task to export the employee's TODO list
+progress and completed tasks to a CSV file named after the employee's ID.
+The script takes the employee ID as a command-line argument and
+generates a CSV file with the required information.
+"""
 import requests
 import sys
 import csv
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -30,7 +37,8 @@ if __name__ == "__main__":
                 task_id = task.get("id")
                 task_title = task.get("title")
                 task_status = task.get("completed")
-                writer.writerow([employee_id, employee_name, task_status, task_title])
+                writer.writerow([employee_id, employee_name,
+                                task_status, task_title])
         print("Data exported to {} successfully.".format(csv_file))
     except requests.exceptions.RequestException as e:
         print("Error:", e)
